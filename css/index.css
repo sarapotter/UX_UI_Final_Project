@@ -1,0 +1,245 @@
+/* Reset some default styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Body and background styles */
+body {
+	background-color: #d2d2d2;
+	background-image: repeating-linear-gradient(
+			to right,
+			transparent 0 100px,
+			#25283b22 100px 101px
+		),
+		repeating-linear-gradient(
+			to bottom,
+			transparent 0 100px,
+			#25283b22 100px 101px
+		);
+	font-family: Arial, sans-serif;
+}
+
+/* Navigation bar styling */
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 10px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10;
+}
+
+.navbar .logo {
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.navbar .nav-links {
+	list-style: none;
+	display: flex;
+}
+
+.navbar .nav-links li {
+	margin-left: 20px;
+}
+
+.navbar .nav-links li a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.navbar .nav-links li a:hover {
+	color: #d2d2d2;
+}
+
+/* Banner section styling */
+.banner {
+	position: relative;
+	width: 100%;
+	height: 70vh; /* Adjust as needed */
+	overflow: hidden;
+	padding-top: 60px; /* Space for navbar */
+}
+
+.banner video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1; /* Place video behind content */
+}
+
+.banner .slider {
+	position: absolute;
+	width: 200px;
+	height: 250px;
+	top: 10%;
+	left: calc(50% - 100px);
+	transform-style: preserve-3d;
+	transform: perspective(1000px);
+	animation: autoRun 60s linear infinite; /* Slowed down to 60s */
+	z-index: 2;
+}
+
+@keyframes autoRun {
+	from {
+		transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+	}
+	to {
+		transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+	}
+}
+
+/* Styling for the cards */
+.banner .slider .item {
+	position: absolute;
+	inset: 0 0 0 0;
+	transform: rotateY(
+			calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+		)
+		translateZ(550px);
+	transform-style: preserve-3d;
+	width: 105%;
+	height: 120%;
+	backface-visibility: hidden; /* Hide the back side when rotated */
+}
+
+/* Front side of the card */
+.banner .slider .item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+	backface-visibility: hidden; /* Hide when rotated */
+}
+
+/* Back side of the card - showing image */
+.banner .slider .item::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: url("https://preview.redd.it/t9ly7ltc9un81.png?width=640&crop=smart&auto=webp&s=2d0f798bab7122728da500dc534c76608ccfad94");
+	background-size: cover;
+	background-position: center;
+	transform: rotateY(180deg); /* Rotate the back side */
+	backface-visibility: hidden; /* Hide the back side when the card is in the front */
+	border-radius: 10px; /* Optional: adds rounded corners for the card */
+}
+
+/* Content section */
+.banner .content {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: min(1400px, 100vw);
+	height: max-content;
+	padding-bottom: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1;
+}
+
+.banner .content h1 {
+	font-family: "ICA Rubrik";
+	font-size: 16em;
+	line-height: 1em;
+	color: #25283b;
+	position: relative;
+}
+
+.banner .content h1::after {
+	position: absolute;
+	inset: 0 0 0 0;
+	content: attr(data-content);
+	z-index: 2;
+	-webkit-text-stroke: 2px #d2d2d2;
+	color: transparent;
+}
+
+.banner .content .author {
+	font-family: Poppins;
+	text-align: right;
+	max-width: 200px;
+}
+
+.banner .content h2 {
+	font-size: 3em;
+}
+
+.banner .content .model {
+	width: 100%;
+	height: 75vh;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-size: auto 130%;
+	background-repeat: no-repeat;
+	background-position: top center;
+	z-index: 1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1023px) {
+	.banner .slider {
+		width: 160px;
+		height: 200px;
+		left: calc(50% - 80px);
+	}
+
+	.banner .slider .item {
+		transform: rotateY(
+				calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+			)
+			translateZ(300px);
+	}
+
+	.banner .content h1 {
+		text-align: center;
+		width: 100%;
+		text-shadow: 0 10px 20px #000;
+		font-size: 7em;
+	}
+
+	.banner .content .author {
+		color: #fff;
+		padding: 20px;
+		text-shadow: 0 10px 20px #000;
+		z-index: 2;
+		max-width: unset;
+		width: 100%;
+		text-align: center;
+		padding: 0 30px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.banner .slider {
+		width: 100px;
+		height: 150px;
+		left: calc(50% - 50px);
+	}
+
+	.banner .slider .item {
+		transform: rotateY(
+				calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+			)
+			translateZ(180px);
+	}
+
+	.banner .content h1 {
+		font-size: 5em;
+	}
+}
