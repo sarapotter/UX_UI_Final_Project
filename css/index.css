@@ -191,8 +191,10 @@ body {
 	z-index: 1;
 }
 
-.item{
-  transform: scale(1.5); 
+@media print {
+  .item img {
+    image-resolution: 300dpi;
+  }
 }
 
 /* Responsive Design */
