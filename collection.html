@@ -6,68 +6,115 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="css/collection.css" />
+		<!-- Bootstrap Stylesheet -->
+		<!-- <link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	</head>
 	<body>
-		<div class="slider">
-			<div class="item sparkley">
-				<img
-					src="https://images.pokemontcg.io/swshp/SWSH127_hires.png"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://images.pokemontcg.io/base1/4_hires.png"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://cdn11.bigcommerce.com/s-89ffd/images/stencil/1280x1280/products/129014/470303/Zapdos-ex-Special-Illustration-Rare__09851.1686534311.png?c=2?imbypass=on"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://images.squarespace-cdn.com/content/v1/5cf4cfa4382ac0000123aa1b/8f518787-27c2-489e-a542-b841e0b62c94/Ivysaur-151.jpg"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://i.ebayimg.com/images/g/A6YAAOSwvx5i0XFq/s-l1200.jpg"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://den-cards.pokellector.com/400/Venusaur-ex.SCR.1.54084.thumb.png"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://api.arizonatcg.com/web/sml/sml_eng_pkmn/Brilliant_Stars/Charizard_VSTAR_174.jpg"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://kawaiicollector.com.au/cdn/shop/collections/unified-minds-244_1200x1200.jpg?v=1588232535"
-					alt="Pokemon Card"
-				/>
-			</div>
-			<div class="item">
-				<img
-					src="https://www.pokebeach.com/news/2024/10/en_US-SWSH10-039-origin_forme_palkia_v.jpg"
-					alt="Pokemon Card"
-				/>
-			</div>
+		<!-- Navigation Bar -->
+		<nav class="navbar">
+			<div class="logo"><a href="index.html">Scan-Delous</a></div>
+			<ul class="nav-links">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
 
-			<button id="next">></button>
-			<button id="prev"><</button>
+		<div class="cards-and-charts">
+			<div class="favorites">
+				<h1>Favorites</h1>
+				<div class="slider">
+					<div class="item">
+						<img
+							src="https://images.pokemontcg.io/swshp/SWSH127_hires.png"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://images.pokemontcg.io/base1/4_hires.png"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://cdn11.bigcommerce.com/s-89ffd/images/stencil/1280x1280/products/129014/470303/Zapdos-ex-Special-Illustration-Rare__09851.1686534311.png?c=2?imbypass=on"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://images.squarespace-cdn.com/content/v1/5cf4cfa4382ac0000123aa1b/8f518787-27c2-489e-a542-b841e0b62c94/Ivysaur-151.jpg"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://i.ebayimg.com/images/g/A6YAAOSwvx5i0XFq/s-l1200.jpg"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://den-cards.pokellector.com/400/Venusaur-ex.SCR.1.54084.thumb.png"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://api.arizonatcg.com/web/sml/sml_eng_pkmn/Brilliant_Stars/Charizard_VSTAR_174.jpg"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://kawaiicollector.com.au/cdn/shop/collections/unified-minds-244_1200x1200.jpg?v=1588232535"
+							alt="Pokemon Card"
+						/>
+					</div>
+					<div class="item">
+						<img
+							src="https://www.pokebeach.com/news/2024/10/en_US-SWSH10-039-origin_forme_palkia_v.jpg"
+							alt="Pokemon Card"
+						/>
+					</div>
+
+					<button id="next">></button>
+					<button id="prev"><</button>
+				</div>
+			</div>
+			<div class="graph">
+				<h1>Collection Value</h1>
+				<canvas
+					id="priceGraph"
+					style="width: 100%; max-width: 600px"
+				></canvas>
+			</div>
 		</div>
-
 		<script src="js/collection.js"></script>
+
+		<!-- Bootstrap Scripts -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>

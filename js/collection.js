@@ -1,3 +1,51 @@
+const xValues = [
+	"Jan 2024",
+	"Feb 2024",
+	"Mar 2024",
+	"Apr 2024",
+	"May 2024",
+	"Jun 2024",
+	"Jul 2024",
+	"Aug 2024",
+	"Sep 2024",
+	"Oct 2024",
+	"Nov 2024",
+	"Dec 2024",
+];
+const yValues = [120, 130, 125, 140, 135, 132, 145, 142, 150, 155, 149, 160]; // Example dollar amounts
+
+new Chart("priceGraph", {
+	type: "line",
+	data: {
+		labels: xValues,
+		datasets: [
+			{
+				fill: false,
+				lineTension: 0,
+				backgroundColor: "rgba(0,0,255,1.0)",
+				borderColor: "rgba(0,0,255,0.1)",
+				data: yValues,
+			},
+		],
+	},
+	options: {
+		legend: { display: false },
+		scales: {
+			yAxes: [
+				{
+					ticks: {
+						callback: function (value) {
+							return "$" + value; // Adds dollar sign to each y-axis tick
+						},
+						suggestedMin: 100, // Adjusted range for dollar values
+						suggestedMax: 180,
+					},
+				},
+			],
+		},
+	},
+});
+
 let items = document.querySelectorAll(".slider .item");
 let active = 3;
 
@@ -216,4 +264,3 @@ Sparkle.prototype = {
 		});
 	},
 };
-
