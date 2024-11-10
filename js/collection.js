@@ -13,7 +13,7 @@ const xValues = [
 	"Dec 2024",
 ];
 
-const yValues = [120, 130, 125, 140, 135, 132, 145, 142, 150, 155, 149, 160]; // Example dollar amounts
+const yValues = [120, 130, 125, 140, 135, 132, 145, 142, 150, 155, 149; 
 
 new Chart("priceGraph", {
 	type: "line",
@@ -23,8 +23,8 @@ new Chart("priceGraph", {
 			{
 				fill: false,
 				lineTension: 0,
-				backgroundColor: "rgba(255, 255, 255, 0.1)",  // white with slight opacity
-				borderColor: "rgba(255, 255, 255, 1)",  // white line color
+				backgroundColor: "rgba(255, 255, 255, 0.1)",  
+				borderColor: "rgba(255, 255, 255, 1)", 
 				data: yValues,
 			},
 		],
@@ -33,13 +33,13 @@ new Chart("priceGraph", {
 		legend: { 
 			display: false, 
 			labels: {
-				color: 'white', // makes legend text white
+				color: 'white', 
 			}
 		},
 		scales: {
 			y: {
 				ticks: {
-					color: "white", // makes y-axis labels white
+					color: "white", 
 					callback: function (value) {
 						return "$" + value;
 					},
@@ -49,21 +49,21 @@ new Chart("priceGraph", {
 			},
 			x: {
 				ticks: {
-					color: "white", // makes x-axis labels white
+					color: "white",
 				},
 			},
 		},
 		plugins: {
 			tooltip: {
 				enabled: true,
-				backgroundColor: "rgba(0, 0, 0, 0.7)", // makes tooltip background darker
-				bodyColor: "white", // makes tooltip text white
-				titleColor: "white", // makes tooltip title text white
+				backgroundColor: "rgba(0, 0, 0, 0.7)", 
+				bodyColor: "white", 
+				titleColor: "white", 
 			},
 			legend: {
 				display: false,
 				labels: {
-					color: 'white', // makes the legend text white
+					color: 'white', 
 				}
 			},
 		},
@@ -72,7 +72,7 @@ new Chart("priceGraph", {
 				tension: 0.1,
 			},
 			point: {
-				backgroundColor: 'white', // makes points white
+				backgroundColor: 'white', 
 			},
 		},
 	},
