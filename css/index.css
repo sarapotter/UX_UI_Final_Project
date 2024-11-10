@@ -158,13 +158,14 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
   animation-name: bounce-animation;
   animation-duration: 2s;
 }
+
 /* Banner section styling */
 .banner {
 	position: relative;
 	width: 100%;
-	height: 100vh; /* Adjust as needed */
+	height: 100vh; 
 	overflow: hidden;
-	padding-top: 60px; /* Space for navbar */
+	padding-top: 60px; 
 }
 
 .banner video {
@@ -174,7 +175,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	z-index: -1; /* Place video behind content */
+	z-index: -1;
 }
 
 .banner .slider {
@@ -185,7 +186,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
 	left: calc(50% - 100px);
 	transform-style: preserve-3d;
 	transform: perspective(1000px);
-	animation: autoRun 60s linear infinite; /* Slowed down to 60s */
+	animation: autoRun 60s linear infinite; 
 	z-index: 2;
 }
 
@@ -209,7 +210,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
 	transform-style: preserve-3d;
 	width: 105%;
 	height: 120%;
-	backface-visibility: hidden; /* Hide the back side when rotated */
+	backface-visibility: hidden; 
 }
 
 /* Front side of the card */
@@ -218,7 +219,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
 	height: 100%;
 	object-fit: cover;
 	border-radius: 10px;
-	backface-visibility: hidden; /* Hide when rotated */
+	backface-visibility: hidden; 
 }
 
 /* Back side of the card - showing image */
@@ -229,9 +230,9 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
 	background-image: url("https://preview.redd.it/t9ly7ltc9un81.png?width=640&crop=smart&auto=webp&s=2d0f798bab7122728da500dc534c76608ccfad94");
 	background-size: cover;
 	background-position: center;
-	transform: rotateY(180deg); /* Rotate the back side */
-	backface-visibility: hidden; /* Hide the back side when the card is in the front */
-	border-radius: 10px; /* Optional: adds rounded corners for the card */
+	transform: rotateY(180deg); 
+	backface-visibility: hidden; 
+	border-radius: 10px; 
 }
 
 /* Content section */
@@ -603,9 +604,9 @@ button svg {
 
 .banner .sparkle-button {
 	position: absolute;
-	top: 30%; /* Adjust based on desired position */
+	top: 30%; 
 	left: 50%;
 	transform: translateX(-50%);
-	z-index: 3; /* Ensure it appears above other elements */
+	z-index: 3; 
 	padding: 1em 2em;
 }
