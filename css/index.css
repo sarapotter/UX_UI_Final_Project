@@ -7,7 +7,7 @@
 
 /* Body and background styles */
 body {
-	background-color: #d2d2d2;
+	background-color: #2b2b2b;
 	background-image: repeating-linear-gradient(
 			to right,
 			transparent 0 100px,
@@ -18,7 +18,11 @@ body {
 			transparent 0 100px,
 			#25283b22 100px 101px
 		);
-	font-family: Arial, sans-serif;
+	font-family: monospace;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, span, a {
+    color: white;
 }
 
 /* Navbar styling */
