@@ -291,25 +291,40 @@ Sparkle.prototype = {
 	},
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-  const cardContainer = document.getElementById('card-container');
-
+document.addEventListener('DOMContentLoaded', function () {
   const imageFiles = [
-    	'Aquavex.png', 'Brambrine.png', 'Fluffernox.png', 'Flufflare.png',
-    	'Glacirune.png', 'Luxavine.png', 'Mimist.png', 'Pyrodra.png', "Scorchfang.png",
-	"Searvile.png", "Solraya.png", "Terrashade.png", "Thornox.png", "Velocirune.png",
-	"Venoclaw.png"
+    'Aquavex.png', 'Brambrine.png', 'Fluffernox.png', 'Flufflare.png',
+    'Glacirune.png', 'Luxavine.png', 'Mimist.png', 'Pyrodra.png', 'Scorchfang.png',
+    'Searvile.png', 'Solraya.png', 'Terrashade.png', 'Thornox.png', 'Velocirune.png',
+    'Venoclaw.png'
   ];
 
-  imageFiles.forEach((imageFile) => {
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('card');
+  const prices = [
+    45, 30, 55, 60, 50, 75, 40, 65, 85, 95, 70, 80, 100, 60, 90
+  ];
 
-    cardElement.innerHTML = `
-      <img src="images/${imageFile}" alt="${imageFile}">
-      <div class="card-title">Card Title</div>
-    `;
+  const container = document.querySelector('.card-container');
 
-    cardContainer.appendChild(cardElement);
+  imageFiles.forEach((image, index) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    
+    const img = document.createElement('img');
+    img.classList.add('card-img');
+    img.src = `images/${image}`;
+    
+    const title = document.createElement('div');
+    title.classList.add('card-title');
+    title.textContent = image.split('.')[0]; 
+    
+    const value = document.createElement('div');
+    value.classList.add('card-value');
+    value.textContent = `Price: $${prices[index]}`; 
+    
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(value);
+    container.appendChild(card);
   });
 });
+
