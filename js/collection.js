@@ -13,7 +13,7 @@ const xValues = [
 	"Dec 2024",
 ];
 
-const yValues = [120, 130, 125, 140, 135, 132, 145, 142, 150, 155, 149; 
+const yValues = [120, 130, 125, 140, 135, 132, 145, 142, 150, 155, 149]; 
 
 new Chart("priceGraph", {
 	type: "line",
