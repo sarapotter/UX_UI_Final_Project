@@ -12,6 +12,7 @@ const xValues = [
 	"Nov 2024",
 	"Dec 2024",
 ];
+
 const yValues = [120, 130, 125, 140, 135, 132, 145, 142, 150, 155, 149, 160]; // Example dollar amounts
 
 new Chart("priceGraph", {
@@ -22,26 +23,57 @@ new Chart("priceGraph", {
 			{
 				fill: false,
 				lineTension: 0,
-				backgroundColor: "rgba(0,0,255,1.0)",
-				borderColor: "rgba(0,0,255,0.1)",
+				backgroundColor: "rgba(255, 255, 255, 0.1)",  // white with slight opacity
+				borderColor: "rgba(255, 255, 255, 1)",  // white line color
 				data: yValues,
 			},
 		],
 	},
 	options: {
-		legend: { display: false },
+		legend: { 
+			display: false, 
+			labels: {
+				color: 'white', // makes legend text white
+			}
+		},
 		scales: {
-			yAxes: [
-				{
-					ticks: {
-						callback: function (value) {
-							return "$" + value; // Adds dollar sign to each y-axis tick
-						},
-						suggestedMin: 100, // Adjusted range for dollar values
-						suggestedMax: 180,
+			y: {
+				ticks: {
+					color: "white", // makes y-axis labels white
+					callback: function (value) {
+						return "$" + value;
 					},
+					suggestedMin: 100,
+					suggestedMax: 180,
 				},
-			],
+			},
+			x: {
+				ticks: {
+					color: "white", // makes x-axis labels white
+				},
+			},
+		},
+		plugins: {
+			tooltip: {
+				enabled: true,
+				backgroundColor: "rgba(0, 0, 0, 0.7)", // makes tooltip background darker
+				bodyColor: "white", // makes tooltip text white
+				titleColor: "white", // makes tooltip title text white
+			},
+			legend: {
+				display: false,
+				labels: {
+					color: 'white', // makes the legend text white
+				}
+			},
+		},
+		elements: {
+			line: {
+				tension: 0.1,
+			},
+			point: {
+				backgroundColor: 'white', // makes points white
+			},
 		},
 	},
 });
@@ -55,7 +87,6 @@ function loadShow() {
 	items[active].style.filter = "none";
 	items[active].style.opacity = 1;
 
-	// Show items after the active one
 	let stt = 0;
 	for (let i = active + 1; i < items.length; i++) {
 		stt++;
@@ -67,7 +98,6 @@ function loadShow() {
 		items[i].style.opacity = stt > 2 ? 0 : 0.6;
 	}
 
-	// Show items before the active one
 	stt = 0;
 	for (let i = active - 1; i >= 0; i--) {
 		stt++;
@@ -95,7 +125,6 @@ prev.onclick = function () {
 	loadShow();
 };
 
-// Add sparkle effect when the item has the class .sparkley
 document.querySelectorAll(".item.sparkley").forEach((item) => {
 	$(item).sparkleh();
 });
@@ -245,22 +274,40 @@ Sparkle.prototype = {
 				var randY = Math.random() > Math.random() * 3;
 
 				if (randX) {
-					u.position.x += (u.delta.x * _this.options.speed) / 1500;
+					u.position.x += u.delta.x * 0.5;
+				} else {
+					u.position.x -= u.delta.x * 0.5;
 				}
 
-				if (!randY) {
-					u.position.y -= (u.delta.y * _this.options.speed) / 800;
-				}
-
-				if (u.position.x > _this.canvas.width) {
-					u.position.x = -7;
-				} else if (u.position.x < -7) {
-					u.position.x = _this.canvas.width;
+				if (randY) {
+					u.position.y += u.delta.y * 0.5;
+				} else {
+					u.position.y -= u.delta.y * 0.5;
 				}
 			}
 
 			_this.draw(time);
-			_this.update();
 		});
 	},
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cardContainer = document.getElementById('card-container');
+
+  const imageFiles = [
+    'image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg',
+    'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg'
+  ];
+
+  imageFiles.forEach((imageFile) => {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card');
+
+    cardElement.innerHTML = `
+      <img src="images/${imageFile}" alt="${imageFile}">
+      <div class="card-title">Card Title</div>
+    `;
+
+    cardContainer.appendChild(cardElement);
+  });
+});
