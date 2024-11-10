@@ -295,8 +295,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const cardContainer = document.getElementById('card-container');
 
   const imageFiles = [
-    'image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg',
-    'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg'
+    	'Aquavex.png', 'Brambrine.png', 'Fluffernox.png', 'Flufflare.png',
+    	'Glacirune.png', 'Luxavine.png', 'Mimist.png', 'Pyrodra.png', "Scorchfang.png",
+	"Searvile.png", "Solraya.png", "Terrashade.png", "Thornox.png", "Velocirune.png",
+	"Venoclaw.png"
   ];
 
   imageFiles.forEach((imageFile) => {
