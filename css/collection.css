@@ -5,17 +5,22 @@ body {
 	font-family: monospace;
 }
 
+h1, h2, h3, h4, h5, h6, p, li, span, a {
+    color: white;
+}
+
 .navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	padding: 10px 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
 }
 
 .navbar .logo {
@@ -44,15 +49,15 @@ body {
 }
 
 .cards-and-charts {
-	display: flex;
-	width: 100%;
-	height: 60vh;
-	position: relative;
-	padding-top: 70px;
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    padding-top: 70px;
 }
 
 .favorites,
-.graph {
+.collection {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -60,27 +65,101 @@ body {
 	font-size: 24px;
 	font-weight: bold;
 	padding: 10px;
+	box-sizing: border-box;
+}
+
+.collection {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.favorites, .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.graph-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+    height: 100%; 
+}
+
+#priceGraph {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+.h1-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.favorites h1,
+.graph h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cards-and-charts::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; 
+  left: 0;
+  width: 100%;
+  height: 2px; 
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.slider, .graph-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .favorites h1,
+    .graph h1 {
+        font-size: 8vw;
+    }
 }
 
 .slider {
-	position: relative;
-	margin-top: 100px;
-	width: 100%;
-	height: 500px;
-	overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 50vh; 
+    overflow: hidden;
+    z-index: 1;
 }
 
 .item {
-	position: absolute;
-	width: 230px;
-	height: 320px;
-	text-align: justify;
-	background-color: #fff;
-	border-radius: 15px;
-	padding: 0;
-	transition: 0.5s;
-	left: calc(50% - 115px);
-	top: 0;
+    position: absolute;
+    width: 20vw; 
+    max-width: 230px; 
+    height: 320px; 
+    text-align: justify;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 0;
+    transition: 0.5s;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; 
 }
 
 .item img {
@@ -89,6 +168,7 @@ body {
 	object-fit: cover;
 	border-radius: 15px;
 }
+
 
 #next {
 	position: absolute;
@@ -104,17 +184,70 @@ body {
 
 #prev,
 #next {
-	color: #fff;
-	background: none;
-	border: none;
-	font-size: xxx-large;
-	font-family: monospace;
-	font-weight: bold;
-	opacity: 0.5;
-	transition: opacity 0.5s;
+    color: #fff;
+    z-index: 10; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    transition: background-color 0.3s, opacity 0.5s;
+    opacity: 0.7;
 }
 
 #prev:hover,
 #next:hover {
-	opacity: 1;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.6); /* Light background on hover */
+    color: #000;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  width: 18rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-title {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.h1card-title {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.h1card-title h1 {
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  text-align: center;
 }
