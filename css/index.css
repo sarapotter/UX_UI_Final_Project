@@ -21,45 +21,139 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-/* Navigation bar styling */
+/* Navbar styling */
 .navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	padding: 10px 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 10;
+  width: 100%;
+  display: flex;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  background: black !important;
+  position: relative; 
+  height: 65px;
 }
 
-.navbar .logo {
-	color: #fff;
-	font-size: 24px;
-	font-weight: bold;
+.navbar-header {
+  flex-grow: 1; 
+  padding-left: 20px;
 }
 
-.navbar .nav-links {
-	list-style: none;
-	display: flex;
+.navbar-brand {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  white-space: nowrap; 
+  flex-shrink: 0; 
 }
 
-.navbar .nav-links li {
-	margin-left: 20px;
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar .nav-links li a {
-	color: #fff;
-	text-decoration: none;
-	font-size: 18px;
+.navbar-nav li {
+  margin-left: 4em;
+  margin-right: 4em;
+  text-align: center;
 }
 
-.navbar .nav-links li a:hover {
-	color: #d2d2d2;
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
 }
 
+.navbar-nav a i {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+/* Original hover effect */
+.hoverable {
+  display: inline-block;
+  backface-visibility: hidden;
+  vertical-align: middle;
+  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hoverable:before {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+.hoverable:hover,
+.hoverable:active,
+.hoverable:focus {
+  transform: translateY(-5px);
+}
+
+.hoverable:hover:before,
+.hoverable:active:before,
+.hoverable:focus:before {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+/* Navbar link hover effect */
+.navbar-nav a:hover {
+  color: #ddd;
+}
+
+/* Bounce animation */
+@keyframes bounce-animation {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.bounce {
+  animation-name: bounce-animation;
+  animation-duration: 2s;
+}
 /* Banner section styling */
 .banner {
 	position: relative;
