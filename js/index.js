@@ -1,6 +1,3 @@
-// JavaScript used to set randomness for particles.
-// Could be done via SSR
-
 const RANDOM = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const PARTICLES = document.querySelectorAll('.particle')
 PARTICLES.forEach(P => {
