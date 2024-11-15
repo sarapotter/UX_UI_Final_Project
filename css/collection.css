@@ -2,7 +2,11 @@ body {
 	background-color: #2b2b2b;
 	min-height: 100vh;
 	margin: 0;
-	font-family: monospace;
+  	font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p, li, span, a {
@@ -26,13 +30,12 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
   padding-left: 20px;
 }
 
-.navbar-brand {
-  font-size: 24px;
-  color: white;
-  text-align: center;
-  white-space: nowrap; 
-  flex-shrink: 0; 
+.navbar-brand img {
+  height: 40px; 
+  width: auto;  
+  align-items: center;
 }
+
 
 .navbar-nav {
   display: flex;
@@ -252,8 +255,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
     border-radius: 15px;
     padding: 0;
     transition: 0.5s;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: translatex(-30%);
     z-index: 1; 
 }
 
