@@ -18,8 +18,13 @@ body {
 			transparent 0 100px,
 			#25283b22 100px 101px
 		);
-	font-family: monospace;
+  font-family: 'Lato', sans-serif;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
 
 h1, h2, h3, h4, h5, h6, p, li, span, a {
     color: white;
@@ -42,13 +47,12 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
   padding-left: 20px;
 }
 
-.navbar-brand {
-  font-size: 24px;
-  color: white;
-  text-align: center;
-  white-space: nowrap; 
-  flex-shrink: 0; 
+.navbar-brand img {
+  height: 40px; 
+  width: auto;  
+  align-items: center;
 }
+
 
 .navbar-nav {
   display: flex;
@@ -163,7 +167,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, a {
 .banner {
 	position: relative;
 	width: 100%;
-	height: 100vh; 
+	height: 70vh; 
 	overflow: hidden;
 	padding-top: 60px; 
 }
